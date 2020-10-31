@@ -1,26 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public CharacterController controller;
-    public Transform cam;
+    private CharacterController _controller;
+    private Transform _mainCamera;
+    private Transform _transform;
 
     public float speed = 6f;
 
     public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
+    private float turnSmoothVelocity;
 
-        
-    
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
+    {
+        _controller = GetComponent<CharacterController>();
+        _mainCamera = GameObject.Find("Main Camera").transform;
+        _transform = transform;
+    }
+
+
+    private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -28,15 +28,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >=0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+            _transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
-            
+            _controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-
-
     }
 }
