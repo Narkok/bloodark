@@ -32,6 +32,9 @@ public class EnemyManager: MonoBehaviour
 
     private void Spawn()
     {
+        if (Managers.instance == null) return;
+        if (Managers.instance.City == null) return;
+
         int index = Random.Range(0, Managers.instance.City.ZomboSpawnPoints.Length);
         Vector3 position = Managers.instance.City.ZomboSpawnPoints[index];
 
