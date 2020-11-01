@@ -28,9 +28,8 @@ public class EnemySpawnManager: MonoBehaviour
         int index = Random.Range(0, Managers.instance.City.ZomboSpawnPoints.Length);
         Vector3 position = Managers.instance.City.ZomboSpawnPoints[index];
 
-        GameObject go = Instantiate(Resources.Load("Zomb") as GameObject);
+        GameObject go = Instantiate(Resources.Load("Zomb") as GameObject, position, Quaternion.identity);
         go.transform.parent = enemyContainer;
-        go.transform.position = position;
     }
 
 

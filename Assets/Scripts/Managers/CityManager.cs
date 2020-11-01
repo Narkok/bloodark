@@ -7,10 +7,10 @@ public class CityManager: MonoBehaviour
     private Transform city;
 
     public Vector3 PlayerSpawnPoint { get { return playerSpawnPoint; } }
-    public Vector3 playerSpawnPoint;
+    private Vector3 playerSpawnPoint;
 
     public Vector3[] ZomboSpawnPoints { get { return zomboSpawnPoints; } }
-    public Vector3[] zomboSpawnPoints;
+    private Vector3[] zomboSpawnPoints;
 
 
     private void Start()
@@ -18,6 +18,7 @@ public class CityManager: MonoBehaviour
         Debug.Log("CityManager Started");
 
         LoadCity();
+
         GetSpawnPoints();
     }
 

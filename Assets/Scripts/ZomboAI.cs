@@ -18,6 +18,7 @@ public class ZomboAI : MonoBehaviour
 
     private void Update()
     {
+        if (_player == null) return;
         _agent.SetDestination(_player.position);
     }
 }
