@@ -1,18 +1,25 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnemySpawnManager: MonoBehaviour
+public class EnemyManager: MonoBehaviour
 {
+
+    public float SwapnDelay = 5;
+
+    public int MaxLimit = 100;
+
+    public int EnemyCount { get { return enemyCount; } }
+    private int enemyCount = 0;
+
 
     private Transform enemyContainer;
 
 
     private void Start()
     {
-        Debug.Log("EnemySpawnManager Started");
-
         CreateEnemyContainer();
-        StartCoroutine(SetGuard());
+
+        StartCoroutine(EnemyGenerator());
     }
 
 
@@ -30,15 +37,17 @@ public class EnemySpawnManager: MonoBehaviour
 
         GameObject go = Instantiate(Resources.Load(Constants.Resources.Zomb) as GameObject, position, Quaternion.identity);
         go.transform.parent = enemyContainer;
+
+        enemyCount++;
     }
 
 
-    private IEnumerator SetGuard()
+    private IEnumerator EnemyGenerator()
     {
         while (true)
         {
-            yield return new WaitForSeconds(10);
-            Spawn();
+            if (enemyCount < MaxLimit) Spawn();
+            yield return new WaitForSeconds(SwapnDelay);
         }
     }
 } 

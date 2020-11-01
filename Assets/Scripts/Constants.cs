@@ -4,6 +4,7 @@
     {
         public static readonly string Zomb = "Zomb";
         public static readonly string City = "City";
+        public static readonly string Player = "Player";
     }
 
 

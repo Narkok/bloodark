@@ -3,6 +3,7 @@ using System.Linq;
 
 public class CityManager: MonoBehaviour
 {
+
     public Transform City { get { return city; } }
     private Transform city;
 
@@ -15,8 +16,6 @@ public class CityManager: MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("CityManager Started");
-
         LoadCity();
 
         GetSpawnPoints();
@@ -25,9 +24,11 @@ public class CityManager: MonoBehaviour
 
     private void LoadCity()
     {
-        GameObject go = Resources.Load(Constants.Resources.City) as GameObject;
-        city = go.transform;
-        Instantiate(go);
+        //GameObject go = Resources.Load(Constants.Resources.City) as GameObject;
+        //city = go.transform;
+        //Instantiate(go);
+
+        city = GameObject.Find(Constants.Resources.City).transform;
     }
 
 

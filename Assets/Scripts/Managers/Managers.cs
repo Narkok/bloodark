@@ -5,8 +5,8 @@ public class Managers: MonoBehaviour
 
     public static Managers instance = null;
 
-    public EnemySpawnManager EnemySpawn { get { return enemySpawnManager; } }
-    private EnemySpawnManager enemySpawnManager;
+    public EnemyManager EnemySpawn { get { return enemyManager; } }
+    private EnemyManager enemyManager;
 
     public CityManager City { get { return cityManager; } }
     private CityManager cityManager;
@@ -14,8 +14,8 @@ public class Managers: MonoBehaviour
     public AppearanceManager Appearance { get { return appearanceManager; } }
     private AppearanceManager appearanceManager;
 
-    public PlayerSpawnManager PlayerSpawn { get { return playerSpawnManager; } }
-    private PlayerSpawnManager playerSpawnManager;
+    public PlayerManager Player { get { return playerManager; } }
+    private PlayerManager playerManager;
 
 
     private void Start()
@@ -26,7 +26,16 @@ public class Managers: MonoBehaviour
             return;
         }
 
-        GenerateManagers();
+        CollectManagers();
+    }
+
+
+    private void CollectManagers()
+    {
+        appearanceManager = GetComponentInChildren<AppearanceManager>();
+        cityManager = GetComponentInChildren<CityManager>();
+        enemyManager = GetComponentInChildren<EnemyManager>();
+        playerManager = GetComponentInChildren<PlayerManager>();
     }
 
 
@@ -34,12 +43,12 @@ public class Managers: MonoBehaviour
     {
         appearanceManager = Create<AppearanceManager>();
         cityManager = Create<CityManager>();
-        enemySpawnManager = Create<EnemySpawnManager>();
-        playerSpawnManager = Create<PlayerSpawnManager>();
+        enemyManager = Create<EnemyManager>();
+        playerManager = Create<PlayerManager>();
     }
 
 
-    private T Create<T>() where T: MonoBehaviour
+    private T Create<T>() where T : MonoBehaviour
     {
         string name = typeof(T).Name;
         GameObject go = new GameObject(name);
