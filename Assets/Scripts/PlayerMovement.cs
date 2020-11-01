@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
+        /// Исправить поиск камеры
         _mainCamera = GameObject.Find("Main Camera").transform;
         _transform = transform;
     }
