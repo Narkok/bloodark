@@ -25,7 +25,7 @@ public class CityManager: MonoBehaviour
 
     private void LoadCity()
     {
-        GameObject go = Resources.Load("City") as GameObject;
+        GameObject go = Resources.Load(Constants.Resources.City) as GameObject;
         city = go.transform;
         Instantiate(go);
     }

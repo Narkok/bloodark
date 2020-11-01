@@ -12,6 +12,7 @@ public class ZomboAI : MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        /// Исправить поиск игрока
         _player = GameObject.FindGameObjectsWithTag("Player")[0].transform;
     }
 

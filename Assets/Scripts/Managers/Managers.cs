@@ -32,45 +32,19 @@ public class Managers: MonoBehaviour
 
     private void GenerateManagers()
     {
-        appearanceManager = CreateAppearanceManager();
-        cityManager = CreateCityManager();
-        enemySpawnManager = CreateEnemySpawnManager();
-        playerSpawnManager = CreatePlayerSpawnManager();
+        appearanceManager = Create<AppearanceManager>();
+        cityManager = Create<CityManager>();
+        enemySpawnManager = Create<EnemySpawnManager>();
+        playerSpawnManager = Create<PlayerSpawnManager>();
     }
 
 
-    private EnemySpawnManager CreateEnemySpawnManager()
+    private T Create<T>() where T: MonoBehaviour
     {
-        GameObject go = new GameObject("EnemySpawnManager");
-        go.AddComponent<EnemySpawnManager>();
+        string name = typeof(T).Name;
+        GameObject go = new GameObject(name);
+        go.AddComponent<T>();
         go.transform.parent = transform;
-        return go.GetComponent<EnemySpawnManager>();
-    }
-
-
-    private PlayerSpawnManager CreatePlayerSpawnManager()
-    {
-        GameObject go = new GameObject("PlayerSpawnManager");
-        go.AddComponent<PlayerSpawnManager>();
-        go.transform.parent = transform;
-        return go.GetComponent<PlayerSpawnManager>();
-    }
-
-
-    private AppearanceManager CreateAppearanceManager()
-    {
-        GameObject go = new GameObject("AppearanceManager");
-        go.AddComponent<AppearanceManager>();
-        go.transform.parent = transform;
-        return go.GetComponent<AppearanceManager>();
-    }
-
-
-    private CityManager CreateCityManager()
-    {
-        GameObject go = new GameObject("CityManager");
-        go.AddComponent<CityManager>();
-        go.transform.parent = transform;
-        return go.GetComponent<CityManager>();
+        return go.GetComponent<T>();
     }
 }
