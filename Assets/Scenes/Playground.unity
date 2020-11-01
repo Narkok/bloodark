@@ -15,9 +15,9 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 0.13207549, g: 0.005606976, b: 0.065716475, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.08
+  m_FogDensity: 0.06
   m_LinearFogStart: 2.2
   m_LinearFogEnd: 14.5
   m_AmbientSkyColor: {r: 2.028538, g: 2.0148559, b: 2.3599417, a: 1}
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CursorIsVisible: 0
-  Fog: 0
+  Fog: 1
   Pixelation: 0
   Rain: 0
 --- !u!1 &202750955
@@ -565,6 +565,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4822717856513291772, guid: 07a70487a751845e7b4edfb358a76930, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822717856513291772, guid: 07a70487a751845e7b4edfb358a76930, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -52.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8779407293999792736, guid: 07a70487a751845e7b4edfb358a76930, type: 3}
       propertyPath: m_Name
       value: City

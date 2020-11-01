@@ -15,5 +15,7 @@ public class AppearanceManager : MonoBehaviour
     private void Start()
     {
         Cursor.visible = CursorIsVisible;
+
+        RenderSettings.fog = Fog;
     }
 }
