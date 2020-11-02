@@ -7,7 +7,6 @@
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
-        _Distortion ("Distortion", Range(0,1)) = 0.0
         _Position ("Position", Vector) = (0,0,0,0)
     }
 
@@ -32,7 +31,6 @@
 
         half _Glossiness;
         half _Metallic;
-        half _Distortion;
         fixed4 _Position;
         fixed4 _Color;
 

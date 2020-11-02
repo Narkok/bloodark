@@ -1,24 +1,52 @@
 ﻿using UnityEngine;
 
+
+interface IManager
+{
+    void Init();
+}
+
+
 public class Managers: MonoBehaviour
 {
 
     public static Managers instance = null;
 
-    public EnemyManager EnemySpawn { get { return enemyManager; } }
     private EnemyManager enemyManager;
+    public EnemyManager Enemy {
+        get {
+            if (enemyManager == null) enemyManager = GetComponent<EnemyManager>();
+            return enemyManager;
+        }
+    }
 
-    public CityManager City { get { return cityManager; } }
     private CityManager cityManager;
+    public CityManager City {
+        get {
+            if (cityManager == null) cityManager = GetComponent<CityManager>();
+            return cityManager;
+        }
+    }
 
-    public AppearanceManager Appearance { get { return appearanceManager; } }
     private AppearanceManager appearanceManager;
+    public AppearanceManager Appearance {
+        get {
+            if (appearanceManager == null) appearanceManager = GetComponent<AppearanceManager>();
+            return appearanceManager;
+        }
+    }
 
-    public PlayerManager Player { get { return playerManager; } }
     private PlayerManager playerManager;
+    public PlayerManager Player {
+        get {
+            if (playerManager == null) playerManager = GetComponent<PlayerManager>();
+            return playerManager;
+        }
+    }
 
 
-    private void Start()
+
+    private void Awake()
     {
         if (instance == null) instance = this;
         else {
@@ -26,34 +54,8 @@ public class Managers: MonoBehaviour
             return;
         }
 
-        CollectManagers();
-    }
-
-
-    private void CollectManagers()
-    {
-        appearanceManager = GetComponentInChildren<AppearanceManager>();
-        cityManager = GetComponentInChildren<CityManager>();
-        enemyManager = GetComponentInChildren<EnemyManager>();
-        playerManager = GetComponentInChildren<PlayerManager>();
-    }
-
-
-    private void GenerateManagers()
-    {
-        appearanceManager = Create<AppearanceManager>();
-        cityManager = Create<CityManager>();
-        enemyManager = Create<EnemyManager>();
-        playerManager = Create<PlayerManager>();
-    }
-
-
-    private T Create<T>() where T : MonoBehaviour
-    {
-        string name = typeof(T).Name;
-        GameObject go = new GameObject(name);
-        go.AddComponent<T>();
-        go.transform.parent = transform;
-        return go.GetComponent<T>();
+        (City as IManager).Init();
+        (Player as IManager).Init();
+        (Enemy as IManager).Init();
     }
 }

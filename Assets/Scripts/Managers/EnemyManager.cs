@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnemyManager: MonoBehaviour
+public class EnemyManager: MonoBehaviour, IManager
 {
 
-    public float SwapnDelay = 5;
+    public float SpawnDelay = 5;
 
     public int MaxLimit = 100;
 
@@ -15,7 +15,7 @@ public class EnemyManager: MonoBehaviour
     private Transform enemyContainer;
 
 
-    private void Start()
+    void IManager.Init()
     {
         CreateEnemyContainer();
 
@@ -50,7 +50,7 @@ public class EnemyManager: MonoBehaviour
         while (true)
         {
             if (enemyCount < MaxLimit) Spawn();
-            yield return new WaitForSeconds(SwapnDelay);
+            yield return new WaitForSeconds(SpawnDelay);
         }
     }
 } 

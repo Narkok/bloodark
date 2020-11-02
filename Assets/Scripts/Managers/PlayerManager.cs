@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class PlayerManager: MonoBehaviour
+public class PlayerManager: MonoBehaviour, IManager
 {
 
     public Transform Player { get { return player; } }
     private Transform player;
 
 
-    private void Start()
+    void IManager.Init()
     {
         CreatePlayer();
     }

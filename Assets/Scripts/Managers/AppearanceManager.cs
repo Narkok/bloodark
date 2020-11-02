@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AppearanceManager : MonoBehaviour
+public class AppearanceManager: MonoBehaviour
 {
 
     public bool CursorIsVisible = false;
@@ -8,6 +8,8 @@ public class AppearanceManager : MonoBehaviour
     public bool Fog = false;
 
     public bool Pixelation = false;
+
+    public bool Distortion = false;
 
     public bool Rain = false;
 

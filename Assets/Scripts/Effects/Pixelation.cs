@@ -5,7 +5,7 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [RequireComponent(typeof(Camera))]
-public class Pixelation : MonoBehaviour
+public class Pixelation: MonoBehaviour
 {
 
     public bool UseScale = false;

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Linq;
 
-public class CityManager: MonoBehaviour
+public class CityManager: MonoBehaviour, IManager
 {
 
     public Transform City { get { return city; } }
@@ -14,7 +14,7 @@ public class CityManager: MonoBehaviour
     private Vector3[] zomboSpawnPoints;
 
 
-    private void Start()
+    void IManager.Init()
     {
         LoadCity();
 
@@ -24,10 +24,6 @@ public class CityManager: MonoBehaviour
 
     private void LoadCity()
     {
-        //GameObject go = Resources.Load(Constants.Resources.City) as GameObject;
-        //city = go.transform;
-        //Instantiate(go);
-
         city = GameObject.Find(Constants.Resources.City).transform;
     }
 

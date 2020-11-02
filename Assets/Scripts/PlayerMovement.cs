@@ -36,5 +36,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             _controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        _controller.Move(Vector3.down * Time.deltaTime * 8);
     }
 }

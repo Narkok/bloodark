@@ -7,7 +7,10 @@ public class Distortion: MonoBehaviour
     public Transform targetTransform;
 
 
-    public MeshRenderer _renderer;
+    private MeshRenderer _renderer;
+
+    [Range(0, 5)]
+    public float distortion = 1;
 
 
     private void Start()
@@ -24,8 +27,17 @@ public class Distortion: MonoBehaviour
         float y = Mathf.Sin((pos.y * 10) % 10 / 10) / 60;
         float z = Mathf.Sin((pos.z * 10) % 10 / 10) / 60;
 
-        Vector4 position = new Vector4(x, y, z, 0);
-        Debug.Log(position);
+        Vector4 position = new Vector4(x * distortion, y * distortion, z * distortion, 0);
+        foreach (Material m in _renderer.sharedMaterials)
+        {
+            m.SetVector("_Position", position);
+        }
+    }
+
+
+    private void OnDisable()
+    {
+        Vector4 position = new Vector4(0, 0, 0, 0);
         foreach (Material m in _renderer.sharedMaterials)
         {
             m.SetVector("_Position", position);
