@@ -12,4 +12,17 @@
     {
         public static readonly string EnemyContainer = "EnemyContainer";
     }
+
+
+    public struct Game
+    {
+        public static readonly int PlayerHP = 100;
+        public static readonly int PlayerStamina = 100;
+    }
+
+
+    public struct Tags
+    {
+        public static readonly string Player = "Player";
+    }
 }

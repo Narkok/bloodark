@@ -3,8 +3,8 @@
 public class PlayerManager: MonoBehaviour, IManager
 {
 
-    public Transform Player { get { return player; } }
-    private Transform player;
+    public PlayerController Player { get { return _player; } }
+    private PlayerController _player;
 
 
     void IManager.Init()
@@ -17,6 +17,6 @@ public class PlayerManager: MonoBehaviour, IManager
     {
         Vector3 position = Managers.instance.City.PlayerSpawnPoint;
         GameObject go = Instantiate(Resources.Load(Constants.Resources.Player) as GameObject, position, Quaternion.identity);
-        player = go.transform;
+        _player = go.GetComponent<PlayerController>();
     }    
 }

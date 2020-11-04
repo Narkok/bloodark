@@ -37,7 +37,7 @@ public class Managers: MonoBehaviour
     }
 
     private PlayerManager playerManager;
-    public PlayerManager Player {
+    public PlayerManager PlayerManager {
         get {
             if (playerManager == null) playerManager = GetComponent<PlayerManager>();
             return playerManager;
@@ -55,7 +55,7 @@ public class Managers: MonoBehaviour
         }
 
         (City as IManager).Init();
-        (Player as IManager).Init();
+        (PlayerManager as IManager).Init();
         (Enemy as IManager).Init();
     }
 }
