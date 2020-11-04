@@ -6,10 +6,9 @@ public class Zombo: MonoBehaviour
 {
 
     private NavMeshAgent _agent;
-    private Collider _collider;
 
     [SerializeField]
-    private int damage = 8;
+    private float damage = 8;
 
     [SerializeField]
     private float attackDelay = 1;
@@ -28,7 +27,6 @@ public class Zombo: MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _collider = GetComponent<Collider>();
     }
 
 

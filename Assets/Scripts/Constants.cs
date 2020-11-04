@@ -16,13 +16,21 @@
 
     public struct Game
     {
-        public static readonly int PlayerHP = 100;
-        public static readonly int PlayerStamina = 100;
+        public static readonly float PlayerHP = 100;
+        public static readonly float PlayerStamina = 100;
     }
 
 
     public struct Tags
     {
         public static readonly string Player = "Player";
+    }
+
+
+    public struct Axis
+    {
+        public static readonly string Horizontal = "Horizontal";
+        public static readonly string Vertical = "Vertical";
+        public static readonly string Run = "Run";
     }
 }

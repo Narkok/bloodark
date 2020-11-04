@@ -44,6 +44,13 @@ public class Managers: MonoBehaviour
         }
     }
 
+    private UIManager uiManager;
+    public UIManager UI {
+        get {
+            if (uiManager == null) uiManager = GetComponent<UIManager>();
+            return uiManager;
+        }
+    }
 
 
     private void Awake()
@@ -57,5 +64,6 @@ public class Managers: MonoBehaviour
         (City as IManager).Init();
         (PlayerManager as IManager).Init();
         (Enemy as IManager).Init();
+        (UI as IManager).Init();
     }
 }

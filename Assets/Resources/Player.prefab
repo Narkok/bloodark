@@ -983,8 +983,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 228803228b5096546ac8a7062027739f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  WalkSpeed: 2
+  RunSpeed: 4
   turnSmoothTime: 0.1
+  _hp: 100
+  _stamina: 100
+  _increaseSpeed: 5
+  _decreaseSpeed: 10
 --- !u!195 &2472664676594215100
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -6,22 +6,37 @@ public class PlayerController: MonoBehaviour
     private Transform _mainCamera;
     private Transform _transform;
 
-    public float WalkSpeed = 2;
-    public float RunSpeed = 5;
+    [Header("Movement")]
+    [SerializeField]
+    private float WalkSpeed = 2;
+    [SerializeField]
+    private float RunSpeed = 5;
     private float currentSpeed = 0;
-
-    public float turnSmoothTime = 0.1f;
+    [SerializeField]
+    private float turnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
 
-    public int HP { get { return _hp; } }
+    //[Space(10)]
+    [Header("HP")]
     [SerializeField]
-    private int _hp = Constants.Game.PlayerHP;
+    private float _hp = Constants.Game.PlayerHP;
+    public float HP { get { return _hp; } }
 
-
-    public int Stamina { get { return _stamina; } }
+    [Header("Stamina")]
     [SerializeField]
-    private int _stamina = Constants.Game.PlayerStamina;
+    private float _stamina = Constants.Game.PlayerStamina;
+    public float Stamina { get { return _stamina; } }
+
+    [SerializeField]
+    [InspectorName("Value")]
+    private float _increaseSpeed = 5;
+
+    [SerializeField]
+    private float _decreaseSpeed = 10;
+
+    [SerializeField]
+    private bool isRunning = false;
 
 
     private void Start()
@@ -37,8 +52,10 @@ public class PlayerController: MonoBehaviour
 
     private void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        UpdateCurrentSpeed();
+
+        float horizontal = Input.GetAxisRaw(Constants.Axis.Horizontal);
+        float vertical = Input.GetAxisRaw(Constants.Axis.Vertical);
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
         if (direction.magnitude >=0.1f)
@@ -52,12 +69,38 @@ public class PlayerController: MonoBehaviour
         }
 
         _controller.Move(Vector3.down * Time.deltaTime * 8);
+
+        UpdateStamina();
     }
 
 
-    public void GetDamage(int damage)
+    private void UpdateCurrentSpeed()
+    {
+        isRunning = Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
+        if (_stamina <= 0) { isRunning = false; }
+        currentSpeed = isRunning ? RunSpeed : WalkSpeed;
+    }
+
+
+    private void UpdateStamina()
+    {
+        if (isRunning)
+        {
+            _stamina = Mathf.Clamp(_stamina - Time.deltaTime * _decreaseSpeed, 0, Constants.Game.PlayerStamina);
+            Managers.instance.UI.UpdateStamina(_stamina);
+        }
+        else
+        {
+            _stamina = Mathf.Clamp(_stamina + Time.deltaTime * _increaseSpeed, 0, Constants.Game.PlayerStamina);
+            Managers.instance.UI.UpdateStamina(_stamina);
+        }
+    }
+
+
+    public void GetDamage(float damage)
     {
         _hp = Mathf.Clamp(_hp - damage, 0, Constants.Game.PlayerHP);
+        Managers.instance.UI.UpdateHealth(_hp);
         if (_hp <= 0) Die();
     }
 
