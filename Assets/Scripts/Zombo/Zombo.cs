@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class ZomboAI : MonoBehaviour
+public class Zombo: MonoBehaviour
 {
     private NavMeshAgent _agent;
 

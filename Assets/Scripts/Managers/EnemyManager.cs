@@ -30,7 +30,7 @@ public class EnemyManager: MonoBehaviour, IManager
     }
 
 
-    private void Spawn()
+    private void Spawn(ZomboType zomboType)
     {
         if (Managers.instance == null) return;
         if (Managers.instance.City == null) return;
@@ -38,7 +38,7 @@ public class EnemyManager: MonoBehaviour, IManager
         int index = Random.Range(0, Managers.instance.City.ZomboSpawnPoints.Length);
         Vector3 position = Managers.instance.City.ZomboSpawnPoints[index];
 
-        GameObject go = Instantiate(Resources.Load(Constants.Resources.Zomb) as GameObject, position, Quaternion.identity);
+        GameObject go = Instantiate(Resources.Load(zomboType.ZomboPath()) as GameObject, position, Quaternion.identity);
         go.transform.parent = enemyContainer;
 
         enemyCount++;
@@ -49,7 +49,7 @@ public class EnemyManager: MonoBehaviour, IManager
     {
         while (true)
         {
-            if (enemyCount < MaxLimit) Spawn();
+            if (enemyCount < MaxLimit) Spawn(ZomboType.Default);
             yield return new WaitForSeconds(SpawnDelay);
         }
     }
