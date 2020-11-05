@@ -39,6 +39,7 @@ public class EnemyManager: MonoBehaviour, IManager
         Vector3 position = Managers.instance.City.ZomboSpawnPoints[index];
 
         GameObject go = Instantiate(Resources.Load(zomboType.ZomboPath()) as GameObject, position, Quaternion.identity);
+        //go.GetComponent<Zombo>()._
         go.transform.parent = enemyContainer;
 
         enemyCount++;

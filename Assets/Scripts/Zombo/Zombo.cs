@@ -6,6 +6,8 @@ public class Zombo: MonoBehaviour
 {
 
     private NavMeshAgent _agent;
+    [SerializeField]
+    private ZomboHealthBarCanvas _healthBar;
 
     [SerializeField]
     private float damage = 8;
@@ -15,6 +17,9 @@ public class Zombo: MonoBehaviour
 
     [SerializeField]
     private float coolDown = 1;
+
+    [SerializeField]
+    private float _hp = 40;
 
 
     private ZomboState state = ZomboState.following;
@@ -27,15 +32,13 @@ public class Zombo: MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _healthBar = GetComponentInChildren<ZomboHealthBarCanvas>();
+        _healthBar.SetMaxHealth(_hp);
     }
 
 
     private void Update()
     {
-        if (state == ZomboState.coolDown)
-        {
-        }
-
         if (state == ZomboState.inAttack)
         {
             _agent.SetDestination(attackPosition);
@@ -87,6 +90,13 @@ public class Zombo: MonoBehaviour
     {
         if (!isPlayerInsideCollider) return;
         Managers.instance.PlayerManager.Player.GetDamage(damage);
+    }
+
+
+    public void GetDamage(float damage)
+    {
+        _hp = Mathf.Clamp(_hp - damage, 0, _hp);
+        _healthBar.UpdateHealth(_hp);
     }
 }
 
