@@ -8,16 +8,17 @@ public class PlayerController: MonoBehaviour
 
     [Header("Movement")]
     [SerializeField]
-    private float WalkSpeed = 2;
+    private float _walkSpeed = 2;
     [SerializeField]
-    private float RunSpeed = 5;
-    private float currentSpeed = 0;
+    private float _runSpeed = 3.5f;
+    private float _currentSpeed = 0;
     [SerializeField]
-    private float turnSmoothTime = 0.1f;
-    private float turnSmoothVelocity;
+    private float _turnSmoothTime = 0.1f;
+    private float _turnSmoothVelocity;
 
+    [SerializeField]
+    private float _gravity = 8;
 
-    //[Space(10)]
     [Header("HP")]
     [SerializeField]
     private float _hp = Constants.Game.PlayerHP;
@@ -35,18 +36,16 @@ public class PlayerController: MonoBehaviour
     [SerializeField]
     private float _decreaseSpeed = 10;
 
-    [SerializeField]
-    private bool isRunning = false;
+    private bool _isRunning = false;
 
 
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
-        /// Исправить поиск камеры
-        _mainCamera = GameObject.Find("Main Camera").transform;
+        _mainCamera = FindObjectOfType<Camera>().transform;
         _transform = transform;
 
-        currentSpeed = WalkSpeed;
+        _currentSpeed = _walkSpeed;
     }
 
 
@@ -54,21 +53,22 @@ public class PlayerController: MonoBehaviour
     {
         UpdateCurrentSpeed();
 
-        float horizontal = Input.GetAxisRaw(Constants.Axis.Horizontal);
-        float vertical = Input.GetAxisRaw(Constants.Axis.Vertical);
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        float horizontal = Input.GetAxis(Constants.Axis.Horizontal);
+        float vertical = Input.GetAxis(Constants.Axis.Vertical);
+        Vector3 direction = new Vector3(horizontal, 0f, vertical);
+        float magnitude = Mathf.Clamp(direction.magnitude, -1, 1);
 
-        if (direction.magnitude >=0.1f)
+        if (magnitude >=0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _mainCamera.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _turnSmoothVelocity, _turnSmoothTime);
             _transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            _controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+            _controller.Move(moveDir.normalized * magnitude * _currentSpeed * Time.deltaTime);
         }
 
-        _controller.Move(Vector3.down * Time.deltaTime * 8);
+        _controller.Move(Vector3.down * Time.deltaTime * _gravity);
 
         UpdateStamina();
     }
@@ -76,15 +76,15 @@ public class PlayerController: MonoBehaviour
 
     private void UpdateCurrentSpeed()
     {
-        isRunning = Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
-        if (_stamina <= 0) { isRunning = false; }
-        currentSpeed = isRunning ? RunSpeed : WalkSpeed;
+        _isRunning = Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
+        if (_stamina <= 0.1) { _isRunning = false; }
+        _currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
     }
 
 
     private void UpdateStamina()
     {
-        if (isRunning)
+        if (_isRunning)
         {
             _stamina = Mathf.Clamp(_stamina - Time.deltaTime * _decreaseSpeed, 0, Constants.Game.PlayerStamina);
             Managers.instance.UI.UpdateStamina(_stamina);
