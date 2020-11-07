@@ -3,8 +3,8 @@
 public class PlayerManager: MonoBehaviour
 {
 
-    public PlayerController Player { get { return _player; } }
-    private PlayerController _player;
+    public Player Player { get { return _player; } }
+    private Player _player;
 
 
     private void Start()
@@ -17,7 +17,7 @@ public class PlayerManager: MonoBehaviour
     {
         Vector3 position = Managers.instance.City.PlayerSpawnPoint;
         GameObject go = Instantiate(Resources.Load(Constants.Resources.Player) as GameObject, position, Quaternion.identity);
-        _player = go.GetComponent<PlayerController>();
+        _player = go.GetComponent<Player>();
 
         Messenger.Broadcast(GameEvents.PLAYER_DID_SPAWN);
     }    

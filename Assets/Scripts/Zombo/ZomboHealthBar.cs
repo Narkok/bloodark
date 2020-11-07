@@ -23,9 +23,7 @@ public class ZomboHealthBar: MonoBehaviour
     {
         float t = smoothTime * Time.deltaTime;
         if (targetHealthValue != healthBar.value)
-        {
             healthBar.value = Mathf.Lerp(healthBar.value, targetHealthValue, t);
-        }
     }
 
 

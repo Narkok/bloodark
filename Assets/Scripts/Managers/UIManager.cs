@@ -16,7 +16,7 @@ public class UIManager: MonoBehaviour
     private Slider staminaBar;
     private float targetStaminaValue;
 
-    private PlayerController _player;
+    private Player _player;
 
 
     private void Awake()
@@ -34,7 +34,7 @@ public class UIManager: MonoBehaviour
 
     private void ConnectPlayer()
     {
-        _player = FindObjectOfType<PlayerController>();
+        _player = FindObjectOfType<Player>();
         _player.Health.ChangeEvent += UpdateHealth;
     }
 

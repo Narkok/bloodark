@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-public class PlayerController: MonoBehaviour
+public class PlayerMovement: MonoBehaviour
 {
     private CharacterController _controller;
-    public Health Health;
     private Transform _mainCamera;
     private Transform _transform;
 
@@ -35,21 +34,12 @@ public class PlayerController: MonoBehaviour
     private bool _isRunning = false;
 
 
-    private void OnEnable()
+    private void Awake()
     {
         _controller = GetComponent<CharacterController>();
         _mainCamera = FindObjectOfType<Camera>().transform;
-        Health = GetComponent<Health>();
         _transform = transform;
         _currentSpeed = _walkSpeed;
-
-        Health.DeathEvent += OnDeath;
-    }
-
-
-    private void OnDisable()
-    {
-        Health.DeathEvent -= OnDeath;
     }
 
 
@@ -98,17 +88,5 @@ public class PlayerController: MonoBehaviour
             _stamina = Mathf.Clamp(_stamina + Time.deltaTime * _increaseSpeed, 0, Constants.Game.PlayerStamina);
             Managers.instance.UI.UpdateStamina(_stamina);
         }
-    }
-
-
-    public void GetDamage(float damage)
-    {
-        Health.TakeDamage(damage);
-    }
-
-
-    private void OnDeath()
-    {
-        Debug.Log("DIED");
     }
 }
