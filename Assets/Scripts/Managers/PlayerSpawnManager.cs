@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using System;
 
 public class PlayerSpawnManager: MonoBehaviour
 {
+
+    public event Action SpawnEvent;
 
     public Player Player { get { return _player; } }
     private Player _player;
@@ -11,7 +14,7 @@ public class PlayerSpawnManager: MonoBehaviour
     {
         if (_player != null)
         {
-            Messenger.Broadcast(GameEvent.PLAYER_DID_SPAWN);
+            SpawnEvent?.Invoke();
             return _player;
         }
 
@@ -19,8 +22,7 @@ public class PlayerSpawnManager: MonoBehaviour
         GameObject go = Instantiate(Resources.Load(Constants.Resources.Player) as GameObject, position, Quaternion.identity);
         _player = go.GetComponent<Player>();
 
-        Messenger.Broadcast(GameEvent.PLAYER_DID_SPAWN);
-
+        SpawnEvent?.Invoke();
         return _player;
     }    
 }

@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
+using System;
 
 public class Health: MonoBehaviour
 {
 
-    public delegate void OnDeathDelegate();
-    public event OnDeathDelegate DeathEvent;
-
-    public delegate void OnChangeDelegate(float value);
-    public event OnChangeDelegate ChangeEvent;
+    public event Action DeathEvent;
+    public event Action<float> ChangeEvent;
 
     [SerializeField]
     private float _hp = 40;

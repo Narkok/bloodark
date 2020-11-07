@@ -48,27 +48,27 @@ public class Game: MonoBehaviour
 
     private void LoadCity()
     {
-        Messenger.AddListener(GameEvent.CITY_DID_LOAD, LoadPlayer);
-
         _city = GetComponent<City>();
+        _city.LoadEvent += LoadPlayer;
         _city.Load();
     }
 
 
     private void LoadPlayer()
     {
-        Messenger.RemoveListener(GameEvent.CITY_DID_LOAD, LoadPlayer);
-        Messenger.AddListener(GameEvent.PLAYER_DID_SPAWN, LoadZomboSpawnManager);
+        _city.LoadEvent -= LoadPlayer;
 
         _playerSpawnManager = GetComponent<PlayerSpawnManager>();
+        _playerSpawnManager.SpawnEvent += LoadZomboSpawnManager;
+
         _player = _playerSpawnManager.Spawn();
-        _ui?.ConnectPlayer(_player);
+        _ui.ConnectPlayer(_player);
     }
 
 
     private void LoadZomboSpawnManager()
     {
-        Messenger.RemoveListener(GameEvent.PLAYER_DID_SPAWN, LoadZomboSpawnManager);
+        _playerSpawnManager.SpawnEvent -= LoadZomboSpawnManager;
 
         _zomboSpawnManager = GetComponent<ZomboSpawnManager>();
         _zomboSpawnManager.StartSpawn();

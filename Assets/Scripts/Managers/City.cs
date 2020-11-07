@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using System.Linq;
+using System;
 
 public class City: MonoBehaviour
 {
+
+    public event Action LoadEvent;
 
     public Transform Transform { get { return _city; } }
     private Transform _city;
@@ -21,7 +24,7 @@ public class City: MonoBehaviour
     {
         if (_city != null)
         {
-            Messenger.Broadcast(GameEvent.CITY_DID_LOAD);
+            LoadEvent?.Invoke();
             return;
         }
 
@@ -38,7 +41,7 @@ public class City: MonoBehaviour
 
         GetSpawnPoints();
 
-        Messenger.Broadcast(GameEvent.CITY_DID_LOAD);
+        LoadEvent?.Invoke();
     }
 
 
