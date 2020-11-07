@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager: MonoBehaviour, IManager
+public class UIManager: MonoBehaviour
 {
     [SerializeField]
     private float smoothTime = 5;
@@ -16,14 +16,33 @@ public class UIManager: MonoBehaviour, IManager
     private Slider staminaBar;
     private float targetStaminaValue;
 
+    private PlayerController _player;
 
-    void IManager.Init()
+
+    private void Awake()
     {
-        healthBar.maxValue = Constants.Game.PlayerHP;
-        targetHealthValue = Constants.Game.PlayerHP;
+        targetHealthValue = 1;
+        targetStaminaValue = 1;
+    }
 
-        staminaBar.maxValue = Constants.Game.PlayerStamina;
-        targetStaminaValue = Constants.Game.PlayerStamina;
+
+    private void OnEnable()
+    {
+        Messenger.AddListener(GameEvents.PLAYER_DID_SPAWN, ConnectPlayer);
+    }
+
+
+    private void ConnectPlayer()
+    {
+        _player = FindObjectOfType<PlayerController>();
+        _player.Health.ChangeEvent += UpdateHealth;
+    }
+
+
+    private void OnDisable()
+    {
+        Messenger.RemoveListener(GameEvents.PLAYER_DID_SPAWN, ConnectPlayer);
+        _player.Health.ChangeEvent -= UpdateHealth;
     }
 
 
@@ -42,7 +61,7 @@ public class UIManager: MonoBehaviour, IManager
     }
 
 
-    public void UpdateHealth(float value)
+    private void UpdateHealth(float value)
     {
         targetHealthValue = value;
     }

@@ -3,6 +3,7 @@
 public class PlayerController: MonoBehaviour
 {
     private CharacterController _controller;
+    public Health Health;
     private Transform _mainCamera;
     private Transform _transform;
 
@@ -19,11 +20,6 @@ public class PlayerController: MonoBehaviour
     [SerializeField]
     private float _gravity = 8;
 
-    [Header("HP")]
-    [SerializeField]
-    private float _hp = Constants.Game.PlayerHP;
-    public float HP { get { return _hp; } }
-
     [Header("Stamina")]
     [SerializeField]
     private float _stamina = Constants.Game.PlayerStamina;
@@ -39,13 +35,21 @@ public class PlayerController: MonoBehaviour
     private bool _isRunning = false;
 
 
-    private void Start()
+    private void OnEnable()
     {
         _controller = GetComponent<CharacterController>();
         _mainCamera = FindObjectOfType<Camera>().transform;
+        Health = GetComponent<Health>();
         _transform = transform;
-
         _currentSpeed = _walkSpeed;
+
+        Health.DeathEvent += OnDeath;
+    }
+
+
+    private void OnDisable()
+    {
+        Health.DeathEvent -= OnDeath;
     }
 
 
@@ -99,16 +103,12 @@ public class PlayerController: MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        _hp = Mathf.Clamp(_hp - damage, 0, Constants.Game.PlayerHP);
-        Managers.instance.UI.UpdateHealth(_hp);
-        if (_hp <= 0) Die();
+        Health.TakeDamage(damage);
     }
 
 
-    private void Die()
+    private void OnDeath()
     {
-        Debug.Log("You Died");
-        // Тут потом анмацию смерти надо запустить
-        // И меню открыть
+        Debug.Log("DIED");
     }
 }

@@ -28,14 +28,6 @@ public class Managers: MonoBehaviour
         }
     }
 
-    private AppearanceManager appearanceManager;
-    public AppearanceManager Appearance {
-        get {
-            if (appearanceManager == null) appearanceManager = GetComponent<AppearanceManager>();
-            return appearanceManager;
-        }
-    }
-
     private PlayerManager playerManager;
     public PlayerManager PlayerManager {
         get {
@@ -62,8 +54,6 @@ public class Managers: MonoBehaviour
         }
 
         (City as IManager).Init();
-        (PlayerManager as IManager).Init();
         (Enemy as IManager).Init();
-        (UI as IManager).Init();
     }
 }

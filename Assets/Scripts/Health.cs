@@ -3,6 +3,12 @@
 public class Health: MonoBehaviour
 {
 
+    public delegate void OnDeathDelegate();
+    public event OnDeathDelegate DeathEvent;
+
+    public delegate void OnChangeDelegate(float value);
+    public event OnChangeDelegate ChangeEvent;
+
     [SerializeField]
     private float _hp = 40;
 
@@ -10,8 +16,10 @@ public class Health: MonoBehaviour
     private float _maxHP = 40;
 
 
-    private void Awake()
+    public void TakeDamage(float damage)
     {
-        _hp = _maxHP;
+        _hp = Mathf.Clamp(_hp - damage, 0, _maxHP);
+        if (_hp <= 0) DeathEvent?.Invoke();
+        ChangeEvent?.Invoke(_hp / _maxHP);
     }
 }
