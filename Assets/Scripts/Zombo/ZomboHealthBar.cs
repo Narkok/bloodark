@@ -27,7 +27,6 @@ public class ZomboHealthBar: MonoBehaviour
     }
 
 
-
     public void UpdateHealth(float value)
     {
         targetHealthValue = value;
@@ -38,5 +37,5 @@ public class ZomboHealthBar: MonoBehaviour
     {
         healthBar.maxValue = value;
         targetHealthValue = value;
-    }    
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EnemyManager: MonoBehaviour, IManager
+public class ZomboSpawnManager: MonoBehaviour
 {
 
     public float SpawnDelay = 5;
@@ -11,36 +11,39 @@ public class EnemyManager: MonoBehaviour, IManager
     public int EnemyCount { get { return enemyCount; } }
     private int enemyCount = 0;
 
+    private Transform _enemyContainer;
+    private Coroutine _zomboCoroutine;
 
-    private Transform enemyContainer;
 
-
-    void IManager.Init()
+    public void StartSpawn()
     {
-        CreateEnemyContainer();
+        if (_enemyContainer == null) CreateEnemyContainer();
+        if (_zomboCoroutine != null) StopCoroutine(_zomboCoroutine);
+        _zomboCoroutine = StartCoroutine(EnemyGenerator());
+    }
 
-        StartCoroutine(EnemyGenerator());
+
+    public void StopSpawn()
+    {
+        if (_zomboCoroutine != null) StopCoroutine(_zomboCoroutine);
+        _zomboCoroutine = null;
     }
 
 
     private void CreateEnemyContainer()
     {
         GameObject go = new GameObject(Constants.ObjectNames.EnemyContainer);
-        enemyContainer = go.transform;
+        _enemyContainer = go.transform;
     }
 
 
     private void Spawn(ZomboType zomboType)
     {
-        if (Managers.instance == null) return;
-        if (Managers.instance.City == null) return;
-
-        int index = Random.Range(0, Managers.instance.City.ZomboSpawnPoints.Length);
-        Vector3 position = Managers.instance.City.ZomboSpawnPoints[index];
+        int index = Random.Range(0, Game.instance.City.ZomboSpawnPoints.Length);
+        Vector3 position = Game.instance.City.ZomboSpawnPoints[index];
 
         GameObject go = Instantiate(Resources.Load(zomboType.ZomboPath()) as GameObject, position, Quaternion.identity);
-        //go.GetComponent<Zombo>()._
-        go.transform.parent = enemyContainer;
+        go.transform.parent = _enemyContainer;
 
         enemyCount++;
     }

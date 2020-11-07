@@ -46,7 +46,7 @@ public class Zombo: MonoBehaviour
 
         if (state == ZomboState.following)
         {
-            Vector3 targetPosition = Managers.instance.PlayerManager.Player.transform.position;
+            Vector3 targetPosition = Game.instance.Player.transform.position;
             _agent.SetDestination(targetPosition);
         }
     }
@@ -75,7 +75,7 @@ public class Zombo: MonoBehaviour
 
     private IEnumerator StartAtack()
     {
-        attackPosition = Managers.instance.PlayerManager.Player.transform.position;
+        attackPosition = Game.instance.Player.transform.position;
         yield return new WaitForSeconds(attackDelay);
         HitPlayer();
         state = ZomboState.coolDown;
@@ -89,7 +89,7 @@ public class Zombo: MonoBehaviour
     private void HitPlayer()
     {
         if (!isPlayerInsideCollider) return;
-        Managers.instance.PlayerManager.Player.GetDamage(damage);
+        Game.instance.Player.GetDamage(damage);
     }
 
 

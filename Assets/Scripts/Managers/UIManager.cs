@@ -26,22 +26,16 @@ public class UIManager: MonoBehaviour
     }
 
 
-    private void OnEnable()
+    public void ConnectPlayer(Player player)
     {
-        Messenger.AddListener(GameEvents.PLAYER_DID_SPAWN, ConnectPlayer);
-    }
-
-
-    private void ConnectPlayer()
-    {
-        _player = FindObjectOfType<Player>();
+        _player = player;
         _player.Health.ChangeEvent += UpdateHealth;
     }
 
 
     private void OnDisable()
     {
-        Messenger.RemoveListener(GameEvents.PLAYER_DID_SPAWN, ConnectPlayer);
+        if (_player == null) return;
         _player.Health.ChangeEvent -= UpdateHealth;
     }
 

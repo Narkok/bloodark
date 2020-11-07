@@ -10,7 +10,7 @@ public class Billboard: MonoBehaviour
     void Start()
     {
         _transform = transform;
-        _mainCamera = FindObjectOfType<Camera>().transform;
+        _mainCamera = Camera.main.transform;
     }
 
 

@@ -37,7 +37,7 @@ public class PlayerMovement: MonoBehaviour
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
-        _mainCamera = FindObjectOfType<Camera>().transform;
+        _mainCamera = Camera.main.transform;
         _transform = transform;
         _currentSpeed = _walkSpeed;
     }
@@ -81,12 +81,12 @@ public class PlayerMovement: MonoBehaviour
         if (_isRunning)
         {
             _stamina = Mathf.Clamp(_stamina - Time.deltaTime * _decreaseSpeed, 0, Constants.Game.PlayerStamina);
-            Managers.instance.UI.UpdateStamina(_stamina);
+            Game.instance.UI.UpdateStamina(_stamina);
         }
         else
         {
             _stamina = Mathf.Clamp(_stamina + Time.deltaTime * _increaseSpeed, 0, Constants.Game.PlayerStamina);
-            Managers.instance.UI.UpdateStamina(_stamina);
+            Game.instance.UI.UpdateStamina(_stamina);
         }
     }
 }

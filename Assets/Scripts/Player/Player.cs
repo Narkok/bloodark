@@ -8,6 +8,7 @@ public class Player: MonoBehaviour
 
     public Health Health;
 
+
     private void Start()
     {
         GetComponent<Health>();
@@ -25,12 +26,6 @@ public class Player: MonoBehaviour
     private void OnDisable()
     {
         Health.DeathEvent -= OnDeath;
-    }
-
-
-    private void Update()
-    {
-        
     }
 
 
