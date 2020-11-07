@@ -7,7 +7,7 @@ public class Zombo: MonoBehaviour
 
     private NavMeshAgent _agent;
     [SerializeField]
-    private ZomboHealthBarCanvas _healthBar;
+    private ZomboHealthBar _healthBar;
 
     [SerializeField]
     private float damage = 8;
@@ -32,7 +32,7 @@ public class Zombo: MonoBehaviour
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _healthBar = GetComponentInChildren<ZomboHealthBarCanvas>();
+        _healthBar = GetComponentInChildren<ZomboHealthBar>();
         _healthBar.SetMaxHealth(_hp);
     }
 

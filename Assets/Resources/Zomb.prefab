@@ -253,6 +253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8286824969431269635}
   - component: {fileID: 4489565483147453043}
+  - component: {fileID: 7742491212588986693}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -327,10 +328,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 78.3
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7742491212588986693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633508428626176111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4f1beec5d55c4d41a8ea3243c41f256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothTime: 5
 --- !u!1 &2948950325712879098
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,6 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6bf407364564b719ae5f3f72c4eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthBar: {fileID: 0}
   damage: 8
   attackDelay: 1
   coolDown: 1
@@ -941,7 +956,8 @@ GameObject:
   - component: {fileID: 6408643852988097957}
   - component: {fileID: 8742415821805046423}
   - component: {fileID: 4126599094427275011}
-  - component: {fileID: 2864408905497919642}
+  - component: {fileID: 2898036773103782499}
+  - component: {fileID: 7994528312209111132}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -956,14 +972,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8099370384036081914}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 8286824969431269635}
   m_Father: {fileID: 3724205072010759791}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.38}
@@ -1029,7 +1045,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2864408905497919642
+--- !u!114 &2898036773103782499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1038,10 +1054,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 8099370384036081914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4f1beec5d55c4d41a8ea3243c41f256, type: 3}
+  m_Script: {fileID: 11500000, guid: 16abdc3d42a2f4ba7bcc6963b9dc1a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeDistance: 20
+--- !u!114 &7994528312209111132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8099370384036081914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d131b23f29808401d8480d3e8e275c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 16
 --- !u!1 &8663975049412707850
 GameObject:
   m_ObjectHideFlags: 0

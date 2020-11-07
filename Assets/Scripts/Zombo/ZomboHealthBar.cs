@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ZomboHealthBarCanvas: MonoBehaviour
+public class ZomboHealthBar: MonoBehaviour
 {
     [SerializeField]
     private float smoothTime = 5;
-
-    private Transform _mainCamera;
-    private Transform _transform;
-
-    [SerializeField]
-    private float activeDistance = 20;
 
     private Slider healthBar;
     private float targetHealthValue;
@@ -20,10 +14,7 @@ public class ZomboHealthBarCanvas: MonoBehaviour
 
     private void Awake()
     {
-        _transform = transform;
-        _mainCamera = GameObject.Find("Main Camera").transform;
-
-        healthBar = GetComponentInChildren<Slider>();
+        healthBar = GetComponent<Slider>();
         targetHealthValue = healthBar.maxValue;
     }
 
@@ -37,12 +28,6 @@ public class ZomboHealthBarCanvas: MonoBehaviour
         }
     }
 
-
-    private void LateUpdate()
-    {
-        healthBar.gameObject.SetActive(Vector3.Distance(_transform.position, _mainCamera.position) < activeDistance);
-        _transform.LookAt(_transform.position + _mainCamera.forward);
-    }
 
 
     public void UpdateHealth(float value)
