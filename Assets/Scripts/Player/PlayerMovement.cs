@@ -33,6 +33,8 @@ public class PlayerMovement: MonoBehaviour
 
     private bool _isRunning = false;
 
+    private PlayerInput _input;
+
 
     private void Awake()
     {
@@ -40,16 +42,28 @@ public class PlayerMovement: MonoBehaviour
         _mainCamera = Camera.main.transform;
         _transform = transform;
         _currentSpeed = _walkSpeed;
+
+        _input = new PlayerInput();
+    }
+
+
+    private void OnEnable()
+    {
+        _input.Enable();
+    }
+
+
+    private void OnDisable()
+    {
+        _input.Disable();
     }
 
 
     private void Update()
     {
         UpdateCurrentSpeed();
-
-        float horizontal = 0;//Input.GetAxis(Constants.Axis.Horizontal);
-        float vertical = 0;//Input.GetAxis(Constants.Axis.Vertical);
-        Vector3 direction = new Vector3(horizontal, 0f, vertical);
+        Vector2 inputDir = _input.Player.Move.ReadValue<Vector2>();
+        Vector3 direction = new Vector3(inputDir.x, 0f, inputDir.y);
         float magnitude = Mathf.Clamp(direction.magnitude, -1, 1);
 
         if (magnitude >=0.1f)
@@ -70,7 +84,7 @@ public class PlayerMovement: MonoBehaviour
 
     private void UpdateCurrentSpeed()
     {
-        _isRunning = false;//Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
+        _isRunning = _input.Player.Run.ReadValue<float>() > 0.5;
         if (_stamina <= 0.1) { _isRunning = false; }
         _currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
     }

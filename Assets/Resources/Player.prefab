@@ -867,7 +867,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7896926960531905535}
-  m_LocalRotation: {x: 0.13264647, y: -0.00000002587977, z: 0.0000000034634653, w: 0.99116343}
+  m_LocalRotation: {x: 0.1326465, y: 0.000000003917893, z: -5.2432775e-10, w: 0.99116343}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 7896926960875010053}
   - component: {fileID: 7896926960875010052}
   - component: {fileID: 7896926960875010074}
-  - component: {fileID: 7756657223282974331}
+  - component: {fileID: 8456494069470896515}
   m_Layer: 0
   m_Name: TPC
   m_TagString: Untagged
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Damping: 0.6
   m_DampingWhenOccluded: 0.6
   m_OptimalTargetDistance: 0
---- !u!114 &7756657223282974331
+--- !u!114 &8456494069470896515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1217,11 +1217,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7896926960875010055}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f2ec9936f21f4c0bbc1afd20a082b54, type: 3}
+  m_Script: {fileID: 11500000, guid: fb7194dc27b9df64c8beca7482ee8e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookSpeed: 1
-  InvertY: 0
+  PlayerIndex: -1
+  XYAxis: {fileID: -1049804905737211591, guid: 7cbed400ca50749f8ad17a9e987450a1, type: 3}
+  ZAxis: {fileID: 0}
 --- !u!1 &7896926960926265798
 GameObject:
   m_ObjectHideFlags: 0
