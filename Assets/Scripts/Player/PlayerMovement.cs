@@ -47,8 +47,8 @@ public class PlayerMovement: MonoBehaviour
     {
         UpdateCurrentSpeed();
 
-        float horizontal = Input.GetAxis(Constants.Axis.Horizontal);
-        float vertical = Input.GetAxis(Constants.Axis.Vertical);
+        float horizontal = 0;//Input.GetAxis(Constants.Axis.Horizontal);
+        float vertical = 0;//Input.GetAxis(Constants.Axis.Vertical);
         Vector3 direction = new Vector3(horizontal, 0f, vertical);
         float magnitude = Mathf.Clamp(direction.magnitude, -1, 1);
 
@@ -70,7 +70,7 @@ public class PlayerMovement: MonoBehaviour
 
     private void UpdateCurrentSpeed()
     {
-        _isRunning = Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
+        _isRunning = false;//Input.GetAxisRaw(Constants.Axis.Run) > 0.5;
         if (_stamina <= 0.1) { _isRunning = false; }
         _currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
     }

@@ -17,10 +17,10 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.13207549, g: 0.005606976, b: 0.065716475, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.06
-  m_LinearFogStart: 2.2
-  m_LinearFogEnd: 14.5
-  m_AmbientSkyColor: {r: 2.028538, g: 2.0148559, b: 2.3599417, a: 1}
+  m_FogDensity: 0.04
+  m_LinearFogStart: 10
+  m_LinearFogEnd: 40
+  m_AmbientSkyColor: {r: 1.8880861, g: 1.8880861, b: 1.8880861, a: 1}
   m_AmbientEquatorColor: {r: 1, g: 0.27400643, b: 0, a: 1}
   m_AmbientGroundColor: {r: 0.3301887, g: 0.009901745, b: 0, a: 1}
   m_AmbientIntensity: 8
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56934795}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a379ac385f5f4d65bcfb3f851f99858, type: 3}
   m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
   UseScale: 0
   Scale: 6
   UseAbsolute: 1
-  Height: 144
+  Height: 188
 --- !u!114 &56934801
 MonoBehaviour:
   m_ObjectHideFlags: 0
