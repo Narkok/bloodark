@@ -1,10 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ZomboHealthBar: MonoBehaviour
 {
+    [SerializeField]
+    private Health _health;
+
     [SerializeField]
     private float smoothTime = 5;
 
@@ -16,26 +17,19 @@ public class ZomboHealthBar: MonoBehaviour
     {
         healthBar = GetComponent<Slider>();
         targetHealthValue = healthBar.maxValue;
+        _health.ChangeEvent += UpdateHealth;
     }
 
 
     private void Update()
     {
-        float t = smoothTime * Time.deltaTime;
         if (targetHealthValue != healthBar.value)
-            healthBar.value = Mathf.Lerp(healthBar.value, targetHealthValue, t);
+            healthBar.value = Mathf.Lerp(healthBar.value, targetHealthValue, smoothTime * Time.deltaTime);
     }
 
 
     public void UpdateHealth(float value)
     {
-        targetHealthValue = value;
-    }
-
-
-    public void SetMaxHealth(float value)
-    {
-        healthBar.maxValue = value;
         targetHealthValue = value;
     }
 }

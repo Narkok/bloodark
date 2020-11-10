@@ -6,8 +6,6 @@ public class Zombo: MonoBehaviour
 {
 
     private NavMeshAgent _agent;
-    [SerializeField]
-    private ZomboHealthBar _healthBar;
 
     [SerializeField]
     private float damage = 8;
@@ -18,8 +16,7 @@ public class Zombo: MonoBehaviour
     [SerializeField]
     private float coolDown = 1;
 
-    [SerializeField]
-    private float _hp = 40;
+    private Health _health;
 
 
     private ZomboState state = ZomboState.following;
@@ -31,9 +28,8 @@ public class Zombo: MonoBehaviour
 
     private void Start()
     {
+        _health = GetComponent<Health>();
         _agent = GetComponent<NavMeshAgent>();
-        _healthBar = GetComponentInChildren<ZomboHealthBar>();
-        _healthBar.SetMaxHealth(_hp);
     }
 
 
@@ -95,8 +91,7 @@ public class Zombo: MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        _hp = Mathf.Clamp(_hp - damage, 0, _hp);
-        _healthBar.UpdateHealth(_hp);
+        _health.TakeDamage(damage);
     }
 }
 
