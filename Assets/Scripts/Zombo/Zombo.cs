@@ -8,22 +8,22 @@ public class Zombo: MonoBehaviour
     private NavMeshAgent _agent;
 
     [SerializeField]
-    private float damage = 8;
+    private float _damage = 8;
 
     [SerializeField]
-    private float attackDelay = 1;
+    private float _attackDelay = 1;
 
     [SerializeField]
-    private float coolDown = 1;
+    private float _coolDown = 1;
 
     private Health _health;
 
 
-    private ZomboState state = ZomboState.following;
+    private ZomboState _state = ZomboState.following;
 
-    private Vector3 attackPosition;
+    private Vector3 _attackPosition;
 
-    private bool isPlayerInsideCollider = false;
+    private bool _isPlayerInsideCollider = false;
 
 
     private void Start()
@@ -35,12 +35,12 @@ public class Zombo: MonoBehaviour
 
     private void Update()
     {
-        if (state == ZomboState.inAttack)
+        if (_state == ZomboState.inAttack)
         {
-            _agent.SetDestination(attackPosition);
+            _agent.SetDestination(_attackPosition);
         }
 
-        if (state == ZomboState.following)
+        if (_state == ZomboState.following)
         {
             Vector3 targetPosition = Game.instance.Player.transform.position;
             _agent.SetDestination(targetPosition);
@@ -51,41 +51,41 @@ public class Zombo: MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag(Constants.Tags.Player)) return;
-        if (state != ZomboState.following) return;
-        state = ZomboState.inAttack;
+        if (_state != ZomboState.following) return;
+        _state = ZomboState.inAttack;
         StartCoroutine(StartAtack());
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.Tags.Player)) isPlayerInsideCollider = true;
+        if (other.CompareTag(Constants.Tags.Player)) _isPlayerInsideCollider = true;
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(Constants.Tags.Player)) isPlayerInsideCollider = false;
+        if (other.CompareTag(Constants.Tags.Player)) _isPlayerInsideCollider = false;
     }
 
 
     private IEnumerator StartAtack()
     {
-        attackPosition = Game.instance.Player.transform.position;
-        yield return new WaitForSeconds(attackDelay);
+        _attackPosition = Game.instance.Player.transform.position;
+        yield return new WaitForSeconds(_attackDelay);
         HitPlayer();
-        state = ZomboState.coolDown;
+        _state = ZomboState.coolDown;
         _agent.isStopped = true;
-        yield return new WaitForSeconds(coolDown);
-        state = ZomboState.following;
+        yield return new WaitForSeconds(_coolDown);
+        _state = ZomboState.following;
         _agent.isStopped = false;
     }
 
 
     private void HitPlayer()
     {
-        if (!isPlayerInsideCollider) return;
-        Game.instance.Player.GetDamage(damage);
+        if (!_isPlayerInsideCollider) return;
+        Game.instance.Player.GetDamage(_damage);
     }
 
 

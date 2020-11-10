@@ -6,23 +6,23 @@ using UnityEngine.UI;
 public class UIManager: MonoBehaviour
 {
     [SerializeField]
-    private float smoothTime = 5;
+    private float _smoothTime = 5;
 
     [SerializeField]
-    private Slider healthBar;
-    private float targetHealthValue;
+    private Slider _healthBar;
+    private float _targetHealthValue;
 
     [SerializeField]
-    private Slider staminaBar;
-    private float targetStaminaValue;
+    private Slider _staminaBar;
+    private float _targetStaminaValue;
 
     private Player _player;
 
 
     private void Awake()
     {
-        targetHealthValue = 1;
-        targetStaminaValue = 1;
+        _targetHealthValue = 1;
+        _targetStaminaValue = 1;
     }
 
 
@@ -42,27 +42,27 @@ public class UIManager: MonoBehaviour
 
     private void Update()
     {
-        float t = smoothTime * Time.deltaTime;
-        if (targetHealthValue != healthBar.value)
+        float t = _smoothTime * Time.deltaTime;
+        if (_targetHealthValue != _healthBar.value)
         {
-            healthBar.value = Mathf.Lerp(healthBar.value, targetHealthValue, t);
+            _healthBar.value = Mathf.Lerp(_healthBar.value, _targetHealthValue, t);
         }
 
-        if (targetStaminaValue != staminaBar.value)
+        if (_targetStaminaValue != _staminaBar.value)
         {
-            staminaBar.value = Mathf.Lerp(staminaBar.value, targetStaminaValue, t);
+            _staminaBar.value = Mathf.Lerp(_staminaBar.value, _targetStaminaValue, t);
         }
     }
 
 
     private void UpdateHealth(float value)
     {
-        targetHealthValue = value;
+        _targetHealthValue = value;
     }
 
 
     public void UpdateStamina(float value)
     {
-        targetStaminaValue = value;
+        _targetStaminaValue = value;
     }
 }

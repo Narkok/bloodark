@@ -7,29 +7,29 @@ public class ZomboHealthBar: MonoBehaviour
     private Health _health;
 
     [SerializeField]
-    private float smoothTime = 5;
+    private float _smoothTime = 5;
 
-    private Slider healthBar;
-    private float targetHealthValue;
+    private Slider _healthBar;
+    private float _targetHealthValue;
 
 
     private void Awake()
     {
-        healthBar = GetComponent<Slider>();
-        targetHealthValue = healthBar.maxValue;
+        _healthBar = GetComponent<Slider>();
+        _targetHealthValue = _healthBar.maxValue;
         _health.ChangeEvent += UpdateHealth;
     }
 
 
     private void Update()
     {
-        if (targetHealthValue != healthBar.value)
-            healthBar.value = Mathf.Lerp(healthBar.value, targetHealthValue, smoothTime * Time.deltaTime);
+        if (_targetHealthValue != _healthBar.value)
+            _healthBar.value = Mathf.Lerp(_healthBar.value, _targetHealthValue, _smoothTime * Time.deltaTime);
     }
 
 
     public void UpdateHealth(float value)
     {
-        targetHealthValue = value;
+        _targetHealthValue = value;
     }
 }
