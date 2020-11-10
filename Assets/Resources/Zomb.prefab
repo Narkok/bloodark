@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: {fileID: 2716965913064214941}
-  smoothTime: 5
+  _smoothTime: 5
 --- !u!1 &2948950325712879098
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,9 +556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc6bf407364564b719ae5f3f72c4eddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6
-  attackDelay: 0.5
-  coolDown: 0.5
+  _damage: 8
+  _attackDelay: 0.4
+  _coolDown: 0.8
 --- !u!195 &548557453593916775
 NavMeshAgent:
   m_ObjectHideFlags: 0

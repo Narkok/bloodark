@@ -304,7 +304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56934795}
-  m_LocalRotation: {x: 0.1505752, y: 0.00090176775, z: -0.00013734991, w: 0.98859817}
+  m_LocalRotation: {x: 0.1505752, y: 0.00082502334, z: -0.00012566081, w: 0.9885982}
   m_LocalPosition: {x: 0, y: 2.5602925, z: -4.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -502,7 +502,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &91247619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1579,7 +1579,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.000061035156, y: 0.00018882751}
   m_SizeDelta: {x: -0.44750977, y: -0.6223755}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3159,9 +3159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee649d94f588947d6bdb646827104751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTime: 5
-  healthBar: {fileID: 1394370851}
-  staminaBar: {fileID: 91247620}
+  _smoothTime: 5
+  _healthBar: {fileID: 1394370851}
+  _staminaBar: {fileID: 91247620}
 --- !u!4 &1605935605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1253458434603340499, guid: de615cd1b191a4ef7aee50ab0b0f4aef, type: 3}

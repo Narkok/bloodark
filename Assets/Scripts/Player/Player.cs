@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Stamina))]
 public class Player: MonoBehaviour
 {
 
     public Health Health;
+    public Stamina Stamina;
 
 
-    private void Start()
+    private void Awake()
     {
-        GetComponent<Health>();
+        Health = GetComponent<Health>();
+        Stamina = GetComponent<Stamina>();
     }
 
 
     private void OnEnable()
     {
-        Health = GetComponent<Health>();
-
         Health.DeathEvent += OnDeath;
     }
 

@@ -30,6 +30,7 @@ public class UIManager: MonoBehaviour
     {
         _player = player;
         _player.Health.ChangeEvent += UpdateHealth;
+        _player.Stamina.ChangeEvent += UpdateStamina;
     }
 
 
@@ -37,6 +38,7 @@ public class UIManager: MonoBehaviour
     {
         if (_player == null) return;
         _player.Health.ChangeEvent -= UpdateHealth;
+        _player.Stamina.ChangeEvent -= UpdateStamina;
     }
 
 

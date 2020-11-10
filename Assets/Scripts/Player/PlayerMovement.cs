@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Stamina))]
 public class PlayerMovement: MonoBehaviour
 {
     private CharacterController _controller;
     private Transform _mainCamera;
+    private Stamina _stamina;
     private Transform _transform;
+    private PlayerInput _input;
 
     [Header("Movement")]
     [SerializeField]
@@ -16,33 +20,23 @@ public class PlayerMovement: MonoBehaviour
     private float _turnSmoothTime = 0.1f;
     private float _turnSmoothVelocity;
 
+    [Header("Running")]
     [SerializeField]
-    private float _gravity = 8;
-
-    [Header("Stamina")]
-    [SerializeField]
-    private float _stamina = Constants.Game.PlayerStamina;
-    public float Stamina { get { return _stamina; } }
-
-    [SerializeField]
-    [InspectorName("Value")]
-    private float _increaseSpeed = 5;
-
-    [SerializeField]
-    private float _decreaseSpeed = 10;
-
+    private float _staminaForRun = 0.15f;
     private bool _isRunning = false;
 
-    private PlayerInput _input;
+    [Space]
+    [SerializeField]
+    private float _gravity = 8;
 
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
+        _stamina = GetComponent<Stamina>();
         _mainCamera = Camera.main.transform;
         _transform = transform;
         _currentSpeed = _walkSpeed;
-
         _input = new PlayerInput();
     }
 
@@ -77,30 +71,14 @@ public class PlayerMovement: MonoBehaviour
         }
 
         _controller.Move(Vector3.down * Time.deltaTime * _gravity);
-
-        UpdateStamina();
     }
 
 
     private void UpdateCurrentSpeed()
     {
         _isRunning = _input.Player.Run.ReadValue<float>() > 0.5;
-        if (_stamina <= 0.1) { _isRunning = false; }
+        if (_isRunning) _stamina.Decrease(_staminaForRun);
+        if (_stamina.Value <= 0.1) { _isRunning = false; }
         _currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
-    }
-
-
-    private void UpdateStamina()
-    {
-        if (_isRunning)
-        {
-            _stamina = Mathf.Clamp(_stamina - Time.deltaTime * _decreaseSpeed, 0, Constants.Game.PlayerStamina);
-            Game.instance.UI.UpdateStamina(_stamina);
-        }
-        else
-        {
-            _stamina = Mathf.Clamp(_stamina + Time.deltaTime * _increaseSpeed, 0, Constants.Game.PlayerStamina);
-            Game.instance.UI.UpdateStamina(_stamina);
-        }
     }
 }
