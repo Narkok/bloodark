@@ -53,7 +53,6 @@ public class Stamina: MonoBehaviour
         }
         _currentIncreaseSpeed = 0;
         _increaseDelayCoroutine = StartCoroutine(ResetIncreaseSpeed());
-
     }
 
 
