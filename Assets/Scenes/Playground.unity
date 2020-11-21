@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.13207549, g: 0.005606976, b: 0.065716475, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.06
   m_LinearFogStart: 10
   m_LinearFogEnd: 40
   m_AmbientSkyColor: {r: 1.8880861, g: 1.8880861, b: 1.8880861, a: 1}
@@ -304,7 +304,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56934795}
-  m_LocalRotation: {x: 0.15057515, y: 0.0012170837, z: -0.00018537624, w: 0.9885978}
+  m_LocalRotation: {x: 0.15057519, y: 0.00094419555, z: -0.00014381214, w: 0.9885981}
   m_LocalPosition: {x: 0, y: 2.5602925, z: -4.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -358,9 +358,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseScale: 0
-  Scale: 2
+  Scale: 3.02
   UseAbsolute: 1
-  Height: 192
+  Height: 512
 --- !u!114 &56934801
 MonoBehaviour:
   m_ObjectHideFlags: 0
