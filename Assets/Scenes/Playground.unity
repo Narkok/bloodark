@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.05
   m_LinearFogStart: 10
   m_LinearFogEnd: 40
-  m_AmbientSkyColor: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  m_AmbientSkyColor: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
   m_AmbientEquatorColor: {r: 1, g: 0.27400643, b: 0, a: 1}
   m_AmbientGroundColor: {r: 0.3301887, g: 0.009901745, b: 0, a: 1}
   m_AmbientIntensity: 8
@@ -157,7 +157,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.38
   m_Range: 1251
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -166,7 +166,7 @@ Light:
     m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.645
     m_Bias: 0
     m_NormalBias: 0.4
     m_NearPlane: 0.1
@@ -395,7 +395,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -404,7 +404,7 @@ MonoBehaviour:
   subpixelMorphologicalAntialiasing:
     quality: 2
   fastApproximateAntialiasing:
-    fastMode: 0
+    fastMode: 1
     keepAlpha: 0
   fog:
     enabled: 1
@@ -50564,6 +50564,63 @@ Transform:
   m_Father: {fileID: 9052381023577761688}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &8868730013156907054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8867739948676304073, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Name
+      value: StreetLamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000000076293944
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.012105629
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.99992675
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -178.613
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
 --- !u!1 &8872255633667048926
 GameObject:
   m_ObjectHideFlags: 0
