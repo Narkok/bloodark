@@ -433,7 +433,7 @@ MonoBehaviour:
   _walkSpeed: 1.4
   _runSpeed: 3.4
   _turnSmoothTime: 0.15
-  _staminaForRun: 0.06
+  _staminaForRun: 8
   _gravity: 8
 --- !u!114 &1537198768623992454
 MonoBehaviour:
@@ -1233,11 +1233,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10770df5142f54ab297a64d6cd08b301, type: 3}
---- !u!4 &8973724708100835021 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2267322783571374731, guid: 10770df5142f54ab297a64d6cd08b301, type: 3}
-  m_PrefabInstance: {fileID: 2018117185090292664}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &5578657338479064617 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 10770df5142f54ab297a64d6cd08b301, type: 3}
@@ -1246,6 +1241,11 @@ Animator:
 --- !u!4 &1984807184618646611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 10770df5142f54ab297a64d6cd08b301, type: 3}
+  m_PrefabInstance: {fileID: 2018117185090292664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8973724708100835021 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2267322783571374731, guid: 10770df5142f54ab297a64d6cd08b301, type: 3}
   m_PrefabInstance: {fileID: 2018117185090292664}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1098436406155863801 stripped

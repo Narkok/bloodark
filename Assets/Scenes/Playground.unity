@@ -189,7 +189,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
   m_CullingMask:
@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53059946}
   m_LocalRotation: {x: 0.21993855, y: 0.17513825, z: -0.047403123, w: 0.95849186}
-  m_LocalPosition: {x: 0, y: 6.13, z: 0}
+  m_LocalPosition: {x: -21.3, y: 6.45, z: 8.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3724,7 +3724,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 1792
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -50571,9 +50571,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8479056202098467966, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Height
+      value: 2.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479056202098467966, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Radius
+      value: 0.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479056202098467966, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Center.y
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 8867739948676304073, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
       propertyPath: m_Name
       value: StreetLamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8867739948676304073, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868730012756743753, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8868730013418973525, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8870522819951373553, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
       propertyPath: m_RootOrder

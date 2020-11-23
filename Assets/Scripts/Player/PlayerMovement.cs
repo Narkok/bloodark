@@ -24,7 +24,7 @@ public class PlayerMovement: MonoBehaviour
 
     [Header("Running")]
     [SerializeField]
-    private float _staminaForRun = 0.06f;
+    private float _staminaForRun = 8;
     private bool _isRunning = false;
 
     [Space]
@@ -88,7 +88,7 @@ public class PlayerMovement: MonoBehaviour
     private void UpdateCurrentSpeed()
     {
         _isRunning = _input.Player.Run.ReadValue<float>() > 0.5;
-        if (_isRunning) _stamina.Decrease(_staminaForRun);
+        if (_isRunning) _stamina.Decrease(_staminaForRun * Time.deltaTime);
         if (_stamina.Value <= 0.1) { _isRunning = false; }
         _currentSpeed = _isRunning ? _runSpeed : _walkSpeed;
     }
