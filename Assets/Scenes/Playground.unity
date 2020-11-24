@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.07450981, g: 0, b: 0.006698291, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.05
@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53059948}
   - component: {fileID: 53059947}
+  - component: {fileID: 53059949}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -220,6 +221,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 25.991, y: 20.507, z: -0.882}
+--- !u!114 &53059949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53059946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b615d87ee65824b7b9165924431d379d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SampleCount: 8
+  ScatteringCoef: 0.5
+  ExtinctionCoef: 0.01
+  SkyboxExtinctionCoef: 0.9
+  MieG: 0.1
+  HeightFog: 0
+  HeightScale: 0.1
+  GroundLevel: 0
+  Noise: 0
+  NoiseScale: 0.015
+  NoiseIntensity: 1
+  NoiseIntensityOffset: 0.3
+  NoiseVelocity: {x: 3, y: 3}
+  MaxRayLength: 400
 --- !u!4 &54298699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1253458434603340499, guid: de615cd1b191a4ef7aee50ab0b0f4aef, type: 3}
@@ -240,6 +267,7 @@ GameObject:
   - component: {fileID: 56934800}
   - component: {fileID: 56934801}
   - component: {fileID: 56934802}
+  - component: {fileID: 56934803}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -437,6 +465,20 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &56934803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56934795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b65fec853bec843a48520721a6746f15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resolution: 1
+  DefaultSpotCookie: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &58569914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1403568880154662457, guid: f78a96ff5a7bc4e3889901d1d89c92d9, type: 3}
