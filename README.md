@@ -1,4 +1,4 @@
 # bloodark
 
 
-![bread.](screenshot.jpg)
+![bread.](screenshot.png)
