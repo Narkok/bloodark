@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: P_Red
-  m_Shader: {fileID: 4800000, guid: 62d2ad69bd7bf4a9080d4512ca51ba74, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8762729df56c7465cb9a98131c539190, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -64,6 +64,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.56
     - _GlossyReflections: 1
+    - _IgnoreFog: 0
     - _Metallic: 0.265
     - _Mode: 0
     - _OcclusionStrength: 1
