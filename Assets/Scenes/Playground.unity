@@ -150,7 +150,6 @@ GameObject:
   - component: {fileID: 56934797}
   - component: {fileID: 56934796}
   - component: {fileID: 56934799}
-  - component: {fileID: 56934800}
   - component: {fileID: 56934801}
   - component: {fileID: 56934802}
   m_Layer: 0
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &56934800
+--- !u!114 &56934801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,28 +267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 56934795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a379ac385f5f4d65bcfb3f851f99858, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseScale: 0
-  Scale: 3.02
-  UseAbsolute: 1
-  Height: 282
---- !u!114 &56934801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56934795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd113a54754b44f7fbaeb412c90cc73c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameboyMaterial: {fileID: 2100000, guid: 8c125921bc7f94b9bb7a927f8ec1119a, type: 2}
-  identityMaterial: {fileID: 2100000, guid: 1d8dad4de334242ca986832d54c20a79, type: 2}
-  Height: 240
+  PosterizeMaterial: {fileID: 2100000, guid: 8c125921bc7f94b9bb7a927f8ec1119a, type: 2}
+  Height: 315
 --- !u!114 &56934802
 MonoBehaviour:
   m_ObjectHideFlags: 0

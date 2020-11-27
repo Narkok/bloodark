@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Gameboy
+  m_Name: Posterize
   m_Shader: {fileID: 4800000, guid: 656601cfe71b440e09c79b2319245141, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -70,6 +70,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Step: 3.75
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
