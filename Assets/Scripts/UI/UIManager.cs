@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RectTransform))]
 public class UIManager: MonoBehaviour
 {
     [SerializeField]
@@ -14,13 +15,20 @@ public class UIManager: MonoBehaviour
     private Slider _staminaBar;
     private float _targetStaminaValue;
 
+    [SerializeField]
+    private Frame _frame;
+
     private Player _player;
+
+    private RectTransform _transform;
 
 
     private void Awake()
     {
+        _transform = GetComponent<RectTransform>();
         _targetHealthValue = 1;
         _targetStaminaValue = 1;
+        _frame.gameObject.SetActive(true);
     }
 
 
@@ -52,6 +60,8 @@ public class UIManager: MonoBehaviour
         {
             _staminaBar.value = Mathf.Lerp(_staminaBar.value, _targetStaminaValue, t);
         }
+
+        _frame.Scale = _transform.localScale.x;
     }
 
 
