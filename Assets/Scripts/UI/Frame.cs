@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+
 public class Frame: MonoBehaviour
 {
     public float Scale = 1;
@@ -24,6 +24,17 @@ public class Frame: MonoBehaviour
     [SerializeField] private Image left;
     [SerializeField] private Image right;
     [SerializeField] private Image bottom;
+
+
+    private void Awake()
+    {
+        center.gameObject.SetActive(true);
+        top.gameObject.SetActive(true);
+        left.gameObject.SetActive(true);
+        right.gameObject.SetActive(true);
+        bottom.gameObject.SetActive(true);
+
+    }
 
 
     private void Update()
