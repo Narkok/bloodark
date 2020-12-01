@@ -25,12 +25,4 @@
     {
         public static readonly string Player = "Player";
     }
-
-
-    public struct Axis
-    {
-        public static readonly string Horizontal = "Horizontal";
-        public static readonly string Vertical = "Vertical";
-        public static readonly string Run = "Run";
-    }
 }
