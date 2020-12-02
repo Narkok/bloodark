@@ -2411,7 +2411,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationX:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2464,7 +2464,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotationY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 0
       minScalar: 0
       maxCurve:
@@ -2517,8 +2517,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startRotation:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 1.0471976
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2940,7 +2940,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -2968,8 +2968,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.37959924
-          value: 0.75470245
+          time: 0.34975305
+          value: 0.6772374
           inSlope: 0.9274702
           outSlope: 0.9274702
           tangentMode: 0
@@ -2986,8 +2986,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.64278877
-          value: 0.77871615
+          time: 0.67263496
+          value: 0.30688387
           inSlope: 0.81972605
           outSlope: 0.81972605
           tangentMode: 0
@@ -7610,6 +7610,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1403568880154662457, guid: f78a96ff5a7bc4e3889901d1d89c92d9, type: 3}
   m_PrefabInstance: {fileID: 7588100372914214003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1616311301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8867739948676304073, guid: 91852c83b63c44c2d821cfdab4ffbf9c, type: 3}
+  m_PrefabInstance: {fileID: 231143777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1616311302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616311301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecaec0b8cf4984abbaf67eb75e6474d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: 0
+  collection:
+  - random: 0
+    Phrases:
+    - "\u0424\u043E\u043D\u0430\u0440\u044C..."
+    - "\u0424\u043E\u043D\u0430\u0440\u044C... \u0421\u0442\u043E\u0438\u0442"
 --- !u!4 &1621753419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1403568880154662457, guid: f78a96ff5a7bc4e3889901d1d89c92d9, type: 3}
