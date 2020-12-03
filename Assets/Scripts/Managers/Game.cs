@@ -71,6 +71,5 @@ public class Game: MonoBehaviour
         _playerSpawnManager.SpawnEvent -= LoadZomboSpawnManager;
 
         _zomboSpawnManager = GetComponent<ZomboSpawnManager>();
-        _zomboSpawnManager.StartSpawn();
     }
 }

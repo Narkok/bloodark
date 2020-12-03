@@ -4,15 +4,35 @@ using UnityEngine;
 public class ZomboSpawnManager: MonoBehaviour
 {
 
-    public float SpawnDelay = 5;
+    [SerializeField]
+    private float SpawnDelay = 5;
 
-    public int MaxLimit = 100;
+    [SerializeField]
+    private int MaxLimit = 100;
 
     public int EnemyCount { get { return enemyCount; } }
     private int enemyCount = 0;
 
     private Transform _enemyContainer;
     private Coroutine _zomboCoroutine;
+
+    [SerializeField]
+    private bool _isEnabled = true;
+    public bool IsEnabled {
+        get { return _isEnabled; }
+        set
+        {
+            _isEnabled = value;
+            if (_isEnabled) StartSpawn();
+            else StopSpawn();
+        }
+    }
+
+
+    private void Start()
+    {
+        if (_isEnabled) StartSpawn();
+    }
 
 
     public void StartSpawn()
