@@ -157,19 +157,19 @@ ModelImporter:
     - boneName: spine.004
       humanName: Neck
       limit:
-        min: {x: -40, y: -15, z: -14.8148155}
-        max: {x: 40, y: 15, z: 40}
+        min: {x: -25, y: -15, z: -14.8148155}
+        max: {x: 25, y: 15, z: 40}
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 1
     - boneName: spine.005
       humanName: Head
       limit:
-        min: {x: 0, y: 0, z: 0}
-        max: {x: 0, y: 0, z: 0}
+        min: {x: -20, y: -21, z: -20}
+        max: {x: 20, y: 21, z: 40}
         value: {x: 0, y: 0, z: 0}
         length: 0
-        modified: 0
+        modified: 1
     - boneName: shoulder.L
       humanName: LeftShoulder
       limit:

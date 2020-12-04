@@ -62,7 +62,6 @@ public class PlayerMovement: MonoBehaviour
         Vector2 inputDir = _input.Player.Move.ReadValue<Vector2>();
         Vector3 direction = new Vector3(inputDir.x, 0f, inputDir.y);
         float magnitude = Mathf.Clamp(direction.magnitude, -1, 1);
-        
 
         if (magnitude >=0.1f)
         {
@@ -75,7 +74,8 @@ public class PlayerMovement: MonoBehaviour
             moveDir = moveDir.normalized * magnitude * _currentSpeed;
             _playerAnimator.ForwardAmount = moveDir.magnitude;
             _controller.Move(moveDir * Time.deltaTime);
-        } else
+        }
+        else
         {
             _playerAnimator.ForwardAmount = 0;
             _playerAnimator.TurnAmount = 0;
