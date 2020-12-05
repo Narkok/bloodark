@@ -93,16 +93,16 @@ ModelImporter:
     - boneName: thigh.L
       humanName: LeftUpperLeg
       limit:
-        min: {x: -60, y: -60, z: -25}
-        max: {x: 60, y: 60, z: 50}
+        min: {x: -40, y: -20, z: -25}
+        max: {x: 19, y: 20, z: 50}
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 1
     - boneName: thigh.R
       humanName: RightUpperLeg
       limit:
-        min: {x: -60, y: -60, z: -30}
-        max: {x: 60, y: 60, z: 50.000004}
+        min: {x: -40, y: -20, z: -25}
+        max: {x: 19, y: 20, z: 50.000004}
         value: {x: 0, y: 0, z: 0}
         length: 0
         modified: 1
