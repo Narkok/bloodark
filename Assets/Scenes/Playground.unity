@@ -1656,7 +1656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scale: 1
-  Radius: 13
+  Radius: 20
   Squared: 1
   Height: 0.8
   Width: 0.8
