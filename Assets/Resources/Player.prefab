@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 6061958006110024388}
   - component: {fileID: 9117436074967007238}
   - component: {fileID: 5283580519355509649}
+  - component: {fileID: 7608164704567851139}
   m_Layer: 11
   m_Name: Crowbar
   m_TagString: Untagged
@@ -311,11 +312,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5701727279473382161}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.046271283, y: 0.19039027, z: 0.17016685}
-  m_Center: {x: 0.000004579782, y: 0.5021134, z: 0.05452698}
+  m_Size: {x: 0.1, y: 0.2, z: 0.2}
+  m_Center: {x: 0, y: 0.5, z: 0.05}
 --- !u!114 &5283580519355509649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +329,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d3c86e3a74d8942be149e694614df2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 10
+--- !u!54 &7608164704567851139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701727279473382161}
+  serializedVersion: 2
+  m_Mass: 0.1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!1 &7896926960400155051
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +370,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7896926960400155051}
-  m_LocalRotation: {x: 0.037223402, y: -0.053871926, z: 0.0020096137, w: 0.99785185}
+  m_LocalRotation: {x: 0.037223406, y: -0.053871963, z: 0.002009615, w: 0.99785185}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -426,7 +444,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7896926960531905535}
-  m_LocalRotation: {x: 0.021661432, y: -0.053896632, z: 0.0011694537, w: 0.99831086}
+  m_LocalRotation: {x: 0.02166141, y: -0.053896595, z: 0.0011694517, w: 0.99831086}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -573,7 +591,7 @@ MonoBehaviour:
   _walkSpeed: 1.4
   _runSpeed: 3.4
   _turnSmoothTime: 0.15
-  _staminaForRun: 0
+  _staminaForRun: 15
   _gravity: 8
 --- !u!114 &1537198768623992454
 MonoBehaviour:
@@ -649,6 +667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940adc40888082c46b6c3b9294e8c466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weapon: {fileID: 5283580519355509649}
+  _attackTime: 1.1
+  _staminaForAttack: 10
 --- !u!1 &7896926960875010055
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,7 +906,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7896926961014484564}
-  m_LocalRotation: {x: 0.039739937, y: -0.05287655, z: 0.002105927, w: 0.9978078}
+  m_LocalRotation: {x: 0.03973986, y: -0.05291319, z: 0.0021073867, w: 0.99780583}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1378,9 +1399,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
---- !u!4 &7146886564399348586 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -2267322783571374731, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
+--- !u!95 &5966314236767128462 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
   m_PrefabInstance: {fileID: 262913597055497759}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1094143453698952586 stripped
@@ -1393,8 +1414,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
   m_PrefabInstance: {fileID: 262913597055497759}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &5966314236767128462 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
+--- !u!4 &7146886564399348586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2267322783571374731, guid: d3fd7e3b9b3f5401da32b72bde1e8d65, type: 3}
   m_PrefabInstance: {fileID: 262913597055497759}
   m_PrefabAsset: {fileID: 0}

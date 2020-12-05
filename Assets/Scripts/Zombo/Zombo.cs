@@ -4,7 +4,6 @@ using UnityEngine.AI;
 
 public class Zombo: MonoBehaviour
 {
-
     private NavMeshAgent _agent;
 
     [SerializeField]
@@ -18,7 +17,6 @@ public class Zombo: MonoBehaviour
 
     private Health _health;
 
-
     private ZomboState _state = ZomboState.following;
 
     private Vector3 _attackPosition;
@@ -26,10 +24,11 @@ public class Zombo: MonoBehaviour
     private bool _isPlayerInsideCollider = false;
 
 
-    private void Start()
+    private void Awake()
     {
         _health = GetComponent<Health>();
         _agent = GetComponent<NavMeshAgent>();
+        _health.DeathEvent += Died;
     }
 
 
@@ -59,13 +58,15 @@ public class Zombo: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(Constants.Tags.Player)) _isPlayerInsideCollider = true;
+        if (other.CompareTag(Constants.Tags.Player)) 
+            _isPlayerInsideCollider = true;
     }
 
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(Constants.Tags.Player)) _isPlayerInsideCollider = false;
+        if (other.CompareTag(Constants.Tags.Player))
+            _isPlayerInsideCollider = false;
     }
 
 
@@ -89,9 +90,9 @@ public class Zombo: MonoBehaviour
     }
 
 
-    public void GetDamage(float damage)
+    private void Died()
     {
-        _health.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
 

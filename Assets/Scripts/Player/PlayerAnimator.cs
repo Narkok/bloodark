@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerAnimator: MonoBehaviour
+public class PlayerAnimator : MonoBehaviour
 {
 
     [SerializeField]
@@ -26,6 +26,20 @@ public class PlayerAnimator: MonoBehaviour
         _animator.SetFloat("Forward", ForwardAmount * _forwardMultiplier, 0.15f, Time.deltaTime);
         _animator.SetFloat("Turn", TurnAmount * _turnMultiplier, 0.25f, Time.deltaTime);
         CheckLongIdle();
+    }
+
+
+    public void StartAttack()
+    {
+        if (_animator == null) return;
+        _animator.SetTrigger("Attack");
+    }
+
+
+    public void StopAttack()
+    {
+        if (_animator == null) return;
+        _animator.ResetTrigger("Attack");
     }
 
 

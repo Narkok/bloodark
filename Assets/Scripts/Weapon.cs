@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Weapon: MonoBehaviour
 {
+    [SerializeField]
+    private float _damage = 10;
+    public float Damage { get { return _damage; } }
 
     private Collider _collider;
 
@@ -12,6 +15,7 @@ public class Weapon: MonoBehaviour
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        _collider.enabled = false;
     }
 
 

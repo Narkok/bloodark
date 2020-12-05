@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Stamina))]
@@ -9,6 +8,17 @@ public class PlayerAttack : MonoBehaviour
     private Stamina _stamina;
     private PlayerInput _input;
     private PlayerAnimator _playerAnimator;
+
+    [SerializeField]
+    private Weapon _weapon;
+
+    [SerializeField]
+    private float _attackTime = 1;
+
+    [SerializeField]
+    private float _staminaForAttack = 10;
+
+    private bool _inAttack = false;
 
 
     private void Awake()
@@ -35,6 +45,24 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacking");
+        if (_inAttack) return;
+        if (_stamina.Value < _staminaForAttack) return;
+
+        _inAttack = true;
+        _stamina.Decrease(_staminaForAttack);
+        _playerAnimator.StartAttack();
+        _weapon?.ActivateCollider();
+
+        StartCoroutine(AttackStopper());
+    }
+
+
+    private IEnumerator AttackStopper()
+    {
+        yield return new WaitForSeconds(_attackTime);
+
+        _inAttack = false;
+        _weapon?.DeactivateCollider();
+        _playerAnimator.StopAttack();
     }
 }
